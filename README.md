@@ -18,10 +18,10 @@ Given (I): Straight flush (five cards in sequence, all of the same suit) > Four 
 Given (II): two deck of cards, each deck contains five cards.
 Please implement a function, takes two deck of cards and determines which deck has the better hand of the two.
 
-'''
+```
 cd /PKR
 npm install
 npm start
-'''
+```
 
 in pocker.js you can change the deck of the player 1 or 2 to test the programme
