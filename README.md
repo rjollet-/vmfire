@@ -24,4 +24,9 @@ npm install
 npm start
 ```
 
+To have mor log:
+```
+DEBUG=* npm start
+```
+
 in pocker.js you can change the deck of the player 1 or 2 to test the programme
