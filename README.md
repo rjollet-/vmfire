@@ -22,6 +22,6 @@ Please implement a function, takes two deck of cards and determines which deck h
 cd /PKR
 npm install
 npm start
-...
+'''
 
 in pocker.js you can change the deck of the player 1 or 2 to test the programme
