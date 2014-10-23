@@ -1,0 +1,11 @@
+{
+  "name": "visitor",
+  "version": "0.0.3",
+  "private": true,
+  "scripts": {
+    "start": "node main"
+  },
+  "dependencies": {
+    "debug": "~0.7.4"
+  }
+}

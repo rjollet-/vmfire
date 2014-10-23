@@ -10,6 +10,16 @@ Solve below questions with javascript OOP(object oriented programming) pattern:
 ---
 Given: Office visitors come and go, each visitor will register his/her arrival and departure time. Please implement a function, when given a certain time period, it will return the maximum number of visitors during the time period.
 
+```
+cd /Visitor
+npm install
+npm start
+```
+
+To have more log:
+```
+DEBUG=* npm start
+```
 
 
 ##2. Poker
@@ -24,7 +34,7 @@ npm install
 npm start
 ```
 
-To have mor log:
+To have more log:
 ```
 DEBUG=* npm start
 ```
