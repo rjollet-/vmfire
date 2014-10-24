@@ -6,8 +6,8 @@ var print = debug('period');
 
 function period(startTime, endTime) {
   	// period is defined by a start time and an end time
-  	this.startTime = startTime || new Date();
-  	this.endTime = endTime || this.startTime.setDate(this.startTime.getDate() + numberOfDaysToAdd);
+  	this.startTime = startTime;
+  	this.endTime = endTime;
 }
 
 period.prototype.toString = function() {
@@ -22,22 +22,22 @@ period.prototype.maxVisitors = function(visitors) {
 
 	//this loop is to take all the visitor in visitors whom wwere visiting during the period
 	for (var i = 0; i < visitors.length; i++) {
-		var v = visitors[i];
-		if (v.departureTime > this.startTime || v.arrivalTime < this.endTime) {
-			times.push({time: v.departureTime, value: -1});
-			times.push({time: v.arrivalTime, value: 1});
+		if (visitors[i].departureTime > this.startTime || visitors[i].arrivalTime < this.endTime) {
+			times.push({time: visitors[i].departureTime, value: -1});
+			times.push({time: visitors[i].arrivalTime, value: 1});
 		}
 	};	
 
-	findMax = function(max, value, index) {
-		count += value;
+	times.sort(function(a, b){return a.time-b.time});
+
+	//count +1 for each visitor who go in and -1 for each visitor who go out and save the max
+	for (var i = 0; i < times.length; i++) {
+		count += times[i].value;
 		if(count > max) {
 			max = count;
 		}
-		return max;
-	}
-
-	return times.sort(function(a, b){return a.time-b.time}).map(function(time) {return time.value}).reduce(findMax);
+	};
+	return max;
 }
 
 module.exports = period;

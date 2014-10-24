@@ -1,27 +1,21 @@
 var debug = require('debug');
 
 var Visitor = require('./visitor');
-var Period = require('./period');
+var Period = require('./period2');
 
 var print = debug('main');
 
+var dStart = new Date();
 console.log("--------------------VISITORS--------------------")
 
-var visitors = [	new Visitor(new Date(2014,10,1), new Date(2014,10,7))
-				,	new Visitor(new Date(2014,10,1), new Date(2014,10,19))
-				,	new Visitor(new Date(2014,10,4), new Date(2014,10,13))
-				,	new Visitor(new Date(2014,10,5), new Date(2014,10,9))
-				,	new Visitor(new Date(2014,10,6), new Date(2014,10,11))
-				,	new Visitor(new Date(2014,10,8), new Date(2014,10,19))
-				,	new Visitor(new Date(2014,10,8), new Date(2014,10,15))
-				,	new Visitor(new Date(2014,10,12), new Date(2014,10,16))
-				,	new Visitor(new Date(2014,10,14), new Date(2014,10,17))
-				,	new Visitor(new Date(2014,10,17), new Date(2014,10,18))
-				]
+var visitors = [];
 
-for (var i = 0; i < visitors.length; i++) {
-	console.log(visitors[i].toString());
-};
+
+
+for (var i = 0; i < 1000000; i++) {
+	visitors.push(new Visitor(new Date(2014,10,1), new Date(2014,10,7)));
+	visitors.push(new Visitor(new Date(2014,10,5), new Date(2014,10,9)));
+}
 
 console.log("--------------------------Period--------------------------")
 
@@ -32,3 +26,5 @@ console.log(period.toString());
 console.log("-------------------MAX------------------")
 
 console.log(period.maxVisitors(visitors));
+var dEnd = new Date();
+console.log(dEnd - dStart);
