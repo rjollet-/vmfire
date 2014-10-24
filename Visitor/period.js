@@ -22,22 +22,22 @@ period.prototype.maxVisitors = function(visitors) {
 
 	//this loop is to take all the visitor in visitors whom wwere visiting during the period
 	for (var i = 0; i < visitors.length; i++) {
-		if (visitors[i].departureTime > this.startTime || visitors[i].arrivalTime < this.endTime) {
-			times.push({time: visitors[i].departureTime, value: -1});
-			times.push({time: visitors[i].arrivalTime, value: 1});
+		var v = visitors[i];
+		if (v.departureTime > this.startTime || v.arrivalTime < this.endTime) {
+			times.push({time: v.departureTime, value: -1});
+			times.push({time: v.arrivalTime, value: 1});
 		}
 	};	
 
-	times.sort(function(a, b){return a.time-b.time});
-
-	//count +1 for each visitor who go in and -1 for each visitor who go out and save the max
-	for (var i = 0; i < times.length; i++) {
-		count += times[i].value;
+	findMax = function(max, value, index) {
+		count += value;
 		if(count > max) {
 			max = count;
 		}
-	};
-	return max;
+		return max;
+	}
+
+	return times.sort(function(a, b){return a.time-b.time}).map(function(time) {return time.value}).reduce(findMax);
 }
 
 module.exports = period;
