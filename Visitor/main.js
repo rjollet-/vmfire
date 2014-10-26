@@ -14,7 +14,7 @@ var visitors = [];
 
 
 
-for (var i = 0; i < 1000000; i++) {
+for (var i = 0; i < 100000; i++) {
 	visitors.push(new Visitor(new Date(2014,10,2), new Date(2014,10,19)));
 	visitors.push(new Visitor(new Date(2014,10,4), new Date(2014,10,13)));
 	visitors.push(new Visitor(new Date(2014,10,5), new Date(2014,10,9)));
