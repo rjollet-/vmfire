@@ -4,8 +4,8 @@ var print = debug('Visitor');
 
 function Visitor(arrivalTime, departureTime) {
   	// Visitor is defined by an arrival time and an departure time
-  	this.arrivalTime = arrivalTime || new Date();
-  	this.departureTime = departureTime || null;
+  	this.arrivalTime = arrivalTime ;
+  	this.departureTime = departureTime ;
 }
 
 Visitor.prototype.toString = function() {
